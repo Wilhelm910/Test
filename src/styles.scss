@@ -1,0 +1,153 @@
+/*!
+ * @license
+ * Copyright Infosim GmbH & Co. KG
+ */
+@use '@angular/material' as mat;
+
+$blue-palette: (
+        50 : #e2ebf2,
+        100 : #b8cdde,
+        200 : #88abc9,
+        300 : #5889b3,
+        400 : #3570a2,
+        500 : #115792,
+        600 : #0f4f8a,
+        700 : #0c467f,
+        800 : #0a3c75,
+        900 : #052c63,
+        A100 : #94b8ff,
+        A200 : #6197ff,
+        A400 : #2e75ff,
+        A700 : #1564ff,
+        contrast: (
+                50 : #000000,
+                100 : #000000,
+                200 : #000000,
+                300 : #ffffff,
+                400 : #ffffff,
+                500 : #ffffff,
+                600 : #ffffff,
+                700 : #ffffff,
+                800 : #ffffff,
+                900 : #ffffff,
+                A100 : #000000,
+                A200 : #000000,
+                A400 : #ffffff,
+                A700 : #ffffff,
+        )
+);
+
+$accent-palette:  (
+        50 : #efeafe,
+        100 : #d8cafc,
+        200 : #bea6fb,
+        300 : #a382f9,
+        400 : #9068f7,
+        500 : #7c4df6,
+        600 : #7446f5,
+        700 : #693df3,
+        800 : #5f34f2,
+        900 : #4c25ef,
+        A100 : #ffffff,
+        A200 : #f8f6ff,
+        A400 : #cec3ff,
+        A700 : #b9aaff,
+        contrast: (
+                50 : #000000,
+                100 : #000000,
+                200 : #000000,
+                300 : #000000,
+                400 : #000000,
+                500 : #ffffff,
+                600 : #ffffff,
+                700 : #ffffff,
+                800 : #ffffff,
+                900 : #ffffff,
+                A100 : #000000,
+                A200 : #000000,
+                A400 : #000000,
+                A700 : #000000,
+        )
+);
+
+$warn-palette:  (
+        50 : #fbf0e7,
+        100 : #f5dac2,
+        200 : #eec299,
+        300 : #e7a970,
+        400 : #e29652,
+        500 : #dd8433,
+        600 : #d97c2e,
+        700 : #d47127,
+        800 : #cf6720,
+        900 : #c75414,
+        A100 : #fffaf7,
+        A200 : #ffd7c4,
+        A400 : #ffb491,
+        A700 : #ffa378,
+        contrast: (
+                50 : #000000,
+                100 : #000000,
+                200 : #000000,
+                300 : #000000,
+                400 : #000000,
+                500 : #000000,
+                600 : #000000,
+                700 : #000000,
+                800 : #ffffff,
+                900 : #ffffff,
+                A100 : #000000,
+                A200 : #000000,
+                A400 : #000000,
+                A700 : #000000,
+        )
+);
+
+$app-typography: mat.define-typography-config();
+$primary: mat.define-palette($blue-palette, 500);
+$accent: mat.define-palette($accent-palette, 500);
+$warn: mat.define-palette($warn-palette, 500);
+$theme: mat.define-light-theme(
+                (
+                        color: (
+                                primary: $primary,
+                                accent: $accent,
+                                warn: $warn,
+                        ),
+                        typography: $app-typography,
+                        density: 0,
+                )
+);
+
+@include mat.all-component-themes($theme);
+@include mat.typography-hierarchy($theme);
+@include mat.all-component-typographies();
+@include mat.slide-toggle-density(-1);
+@include mat.core();
+
+
+/* You can add global styles to this file, and also import other style files */
+.w-100 {
+  width: 100%
+}
+
+.h-100 {
+  height: 100%
+}
+
+.mx-3 {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.d-flex {
+  display: flex
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
