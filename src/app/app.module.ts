@@ -15,12 +15,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonModule } from '@angular/material/button';
+import { NetworkInterceptor } from './network.interceptor';
+import { HttpClientModule } from  '@angular/common/http';
+import { HTTP_INTERCEPTORS } from  '@angular/common/http';
 
 
 @NgModule({
   declarations: [AppComponent, RenderUsersComponent],
-  imports: [BrowserModule, HeaderComponent, BrowserAnimationsModule, MatToolbarModule, MatProgressSpinnerModule, MatButtonModule],
-  providers: [UserApiService],
+  imports: [BrowserModule, HeaderComponent, BrowserAnimationsModule, MatToolbarModule, MatProgressSpinnerModule, MatButtonModule, HttpClientModule],
+  providers: [UserApiService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: NetworkInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

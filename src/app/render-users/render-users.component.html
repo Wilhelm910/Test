@@ -11,3 +11,6 @@
         <button mat-raised-button (click)="deleteUser(user.id)">delete</button>
     </div>
 </div>
+
+
+<mat-progress-spinner [mode]="'indeterminate'" *ngIf="loading"></mat-progress-spinner>

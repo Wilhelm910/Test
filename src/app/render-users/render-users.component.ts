@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserApiService } from '../backend/user-api.service';
 import { UserDTO } from '../data/user';
+import { LoadingService } from '../loading.service';
+import { HttpClient } from  '@angular/common/http';
 
 @Component({
   selector: 'app-render-users',
@@ -11,8 +13,9 @@ export class RenderUsersComponent implements OnInit {
 
   userList: any;
   loading:boolean = false;
+  loading$ = this.loader.loading$;
 
-  constructor(private UserApiService: UserApiService){}
+  constructor(private UserApiService: UserApiService, public loader: LoadingService, private http: HttpClient){}
 
   ngOnInit(): void {
     this.loading = true;
