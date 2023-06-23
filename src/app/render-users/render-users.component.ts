@@ -9,11 +9,26 @@ import { UserDTO } from '../data/user';
 })
 export class RenderUsersComponent implements OnInit {
 
+  userList: any;
+  loading:boolean = false;
+
   constructor(private UserApiService: UserApiService){}
 
   ngOnInit(): void {
-    let test = this.UserApiService.list()
-   // console.log(test)
+    this.loading = true;
+    console.log(this.loading)
+    this.UserApiService.list().subscribe(res=> {
+      this.userList = res;
+      console.log(this.userList);
+      this.loading = false;
+      console.log(this.loading)
+    })
+  }
+
+  deleteUser(ID:any) {
+    console.log(ID)
+    this.UserApiService.delete(ID)
+   // this.UserApiService.update(ID,t)
   }
 
 }

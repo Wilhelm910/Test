@@ -1,1 +1,13 @@
-<p>render-users works!</p>
+<div>
+    <div *ngFor="let user of userList">
+        <div class="flex">
+            <p>{{ user.firstname }}</p>
+            <p>{{ user.lastname }}</p>
+        </div>
+        <div>
+            <p>{{ user.email }}</p>
+            <p>{{ user.description }}</p>
+        </div>
+        <button mat-raised-button (click)="deleteUser(user.id)">delete</button>
+    </div>
+</div>

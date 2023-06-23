@@ -151,3 +151,5 @@ $theme: mat.define-light-theme(
 .justify-content-center {
   justify-content: center;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
