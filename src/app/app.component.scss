@@ -3,6 +3,13 @@
  * Copyright Infosim GmbH & Co. KG
  */
 
+ * {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ }
+
 mat-progress-spinner {
     position: absolute;
     top: 50%;

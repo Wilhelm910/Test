@@ -2,22 +2,25 @@
     <app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
 </div>
 
-<div>
-    <div *ngFor="let user of userList">
+<div class="user-container">
+    <div *ngFor="let user of userList" class="user">
         <div *ngIf="searchText === '' 
         || user.username.toLowerCase().replace('-', ' ').includes(searchText.toLowerCase())
         || user.firstname.toLowerCase().includes(searchText.toLowerCase())
         || user.lastname.toLowerCase().includes(searchText.toLowerCase())">
             <div class="flex">
-                <p>{{ user.firstname }}</p>
-                <p>{{ user.lastname }}</p>
+                <p><span>Name:</span> {{ user.firstname}}</p>
+                <p>{{user.lastname }}</p>
             </div>
             <div>
-                <p>{{ user.email }}</p>
-                <p>{{ user.description }}</p>
+                <p><span>Email:</span> {{ user.email }}</p>
+                <p><span>Description:</span> {{ user.description }}</p>
             </div>
-            <div>
-                <p>{{ user.lastModified }}</p>
+            <div class="date-container">
+                <p>User created:</p>
+                <p>{{ getDateTimeFromTimestamp(user.lastModified).formattedDate }}</p>
+                <p>|</p>
+                <p>{{ getDateTimeFromTimestamp(user.lastModified).formattedTime }}</p>
             </div>
             <button mat-raised-button (click)="deleteUser(user.id)">delete</button>
         </div>

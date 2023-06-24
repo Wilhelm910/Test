@@ -1,12 +1,14 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { UserApiService } from '../backend/user-api.service';
 import { UserDTO } from '../data/user';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
   selector: 'app-render-users',
   templateUrl: './render-users.component.html',
-  styleUrls: ['./render-users.component.scss']
+  styleUrls: ['./render-users.component.scss'],
+  providers: [DatePipe],
 })
 export class RenderUsersComponent implements OnInit {
 
@@ -37,6 +39,17 @@ export class RenderUsersComponent implements OnInit {
       this.userList = newUserList;
      // this.UserApiService.update(2, this.userList).subscribe(() => { })
     })
+  }
+
+
+  getDateTimeFromTimestamp(timestamp: number) {
+    const date = new Date(timestamp);
+    const formattedDate = date.toLocaleDateString(); // Datum im gewünschten Format
+    const formattedTime = date.toLocaleTimeString(); // Uhrzeit im gewünschten Format
+    return {
+      formattedDate,
+      formattedTime
+    };
   }
 
 }
