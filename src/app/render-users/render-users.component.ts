@@ -11,6 +11,7 @@ import { UserDTO } from '../data/user';
 export class RenderUsersComponent implements OnInit {
 
   userList: any;
+  searchText: string = '';
 
   @Output() isLoading: EventEmitter<any> = new EventEmitter()
 
@@ -21,8 +22,13 @@ export class RenderUsersComponent implements OnInit {
     this.UserApiService.list().subscribe(res => {
       this.userList = res;
       console.log(this.userList);
+      console.log(this.userList[0].username.replace('-',' '))
       this.isLoading.emit(false)
     })
+  }
+
+  onSearchTextEntered(searchValue: string) {
+    this.searchText = searchValue;
   }
 
   deleteUser(ID: any) {

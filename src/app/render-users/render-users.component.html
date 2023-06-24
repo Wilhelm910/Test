@@ -1,21 +1,19 @@
 <div>
-    <mat-form-field>
-        <mat-label>Search...</mat-label>
-        <input matInput type="text" >
-          <mat-icon>search</mat-icon>
-      </mat-form-field>
+    <app-search (searchTextChanged)="onSearchTextEntered($event)"></app-search>
 </div>
 
 <div>
     <div *ngFor="let user of userList">
-        <div class="flex">
-            <p>{{ user.firstname }}</p>
-            <p>{{ user.lastname }}</p>
+        <div *ngIf="searchText === '' || user.username.toLowerCase().replace('-', ' ').includes(searchText.toLowerCase()) ">
+            <div class="flex">
+                <p>{{ user.firstname }}</p>
+                <p>{{ user.lastname }}</p>
+            </div>
+            <div>
+                <p>{{ user.email }}</p>
+                <p>{{ user.description }}</p>
+            </div>
+            <button mat-raised-button (click)="deleteUser(user.id)">delete</button>
         </div>
-        <div>
-            <p>{{ user.email }}</p>
-            <p>{{ user.description }}</p>
-        </div>
-        <button mat-raised-button (click)="deleteUser(user.id)">delete</button>
     </div>
 </div>

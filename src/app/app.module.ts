@@ -17,11 +17,13 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClientModule } from  '@angular/common/http';
 import { HTTP_INTERCEPTORS } from  '@angular/common/http';
+import { SearchComponent } from './search/search.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [AppComponent, RenderUsersComponent],
-  imports: [BrowserModule,MatIconModule, MatInputModule, HeaderComponent, BrowserAnimationsModule, MatToolbarModule, MatProgressSpinnerModule, MatButtonModule, HttpClientModule],
+  declarations: [AppComponent, RenderUsersComponent, SearchComponent],
+  imports: [BrowserModule, FormsModule, MatIconModule, MatInputModule, HeaderComponent, BrowserAnimationsModule, MatToolbarModule, MatProgressSpinnerModule, MatButtonModule, HttpClientModule],
   providers: [UserApiService],
   bootstrap: [AppComponent],
 })
