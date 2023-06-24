@@ -21,8 +21,6 @@ export class RenderUsersComponent implements OnInit {
     this.isLoading.emit(true)
     this.UserApiService.list().subscribe(res => {
       this.userList = res;
-      console.log(this.userList);
-      console.log(this.userList[0].username.replace('-',' '))
       this.isLoading.emit(false)
     })
   }
@@ -31,10 +29,12 @@ export class RenderUsersComponent implements OnInit {
     this.searchText = searchValue;
   }
 
-  deleteUser(ID: any) {
+  deleteUser(ID: number) {
     console.log(ID)
-    this.UserApiService.delete(ID)
-    // this.UserApiService.update(ID,t)
+    this.UserApiService.delete(ID).subscribe((newUserList) => {
+      this.userList = newUserList;
+     // this.UserApiService.update(2, this.userList).subscribe(() => { })
+    })
   }
 
 }

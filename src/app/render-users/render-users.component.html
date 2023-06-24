@@ -4,7 +4,10 @@
 
 <div>
     <div *ngFor="let user of userList">
-        <div *ngIf="searchText === '' || user.username.toLowerCase().replace('-', ' ').includes(searchText.toLowerCase()) ">
+        <div *ngIf="searchText === '' 
+        || user.username.toLowerCase().replace('-', ' ').includes(searchText.toLowerCase())
+        || user.firstname.toLowerCase().includes(searchText.toLowerCase())
+        || user.lastname.toLowerCase().includes(searchText.toLowerCase())">
             <div class="flex">
                 <p>{{ user.firstname }}</p>
                 <p>{{ user.lastname }}</p>
@@ -12,6 +15,9 @@
             <div>
                 <p>{{ user.email }}</p>
                 <p>{{ user.description }}</p>
+            </div>
+            <div>
+                <p>{{ user.lastModified }}</p>
             </div>
             <button mat-raised-button (click)="deleteUser(user.id)">delete</button>
         </div>

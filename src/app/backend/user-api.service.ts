@@ -82,7 +82,8 @@ export class UserApiService {
     return of({}).pipe(
       map(() => {
         users = users.filter(u => u.id != id);
-        return 'Done';
+      //  return 'Done';
+        return users;
       })
     );
   }
@@ -91,7 +92,7 @@ export class UserApiService {
     return of({}).pipe(
       map(() => {
         const userData = users.filter(u => u.id == id)[0];
-
+   
         if (!userData) {
           throw new Error(`User with id ${id} could not be found.`);
         }
