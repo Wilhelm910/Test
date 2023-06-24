@@ -3,7 +3,6 @@
  * Copyright Infosim GmbH & Co. KG
  */
 import { Component } from '@angular/core';
-import { LoadingService } from './loading.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +11,11 @@ import { LoadingService } from './loading.service';
 })
 export class AppComponent {
 
-  loading$ = this.loader.loading$;
+  loading:boolean = false;
 
-  constructor(public loader: LoadingService) {}
+  isLoading(event:any) {
+    this.loading = event
+  }
+
+  constructor() {}
 }

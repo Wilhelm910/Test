@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { UserApiService } from '../backend/user-api.service';
 import { UserDTO } from '../data/user';
-import { LoadingService } from '../loading.service';
-import { HttpClient } from  '@angular/common/http';
+
 
 @Component({
   selector: 'app-render-users',
@@ -12,26 +11,24 @@ import { HttpClient } from  '@angular/common/http';
 export class RenderUsersComponent implements OnInit {
 
   userList: any;
-  loading:boolean = false;
-  loading$ = this.loader.loading$;
 
-  constructor(private UserApiService: UserApiService, public loader: LoadingService, private http: HttpClient){}
+  @Output() isLoading: EventEmitter<any> = new EventEmitter()
+
+  constructor(private UserApiService: UserApiService) { }
 
   ngOnInit(): void {
-    this.loading = true;
-    console.log(this.loading)
-    this.UserApiService.list().subscribe(res=> {
+    this.isLoading.emit(true)
+    this.UserApiService.list().subscribe(res => {
       this.userList = res;
       console.log(this.userList);
-      this.loading = false;
-      console.log(this.loading)
+      this.isLoading.emit(false)
     })
   }
 
-  deleteUser(ID:any) {
+  deleteUser(ID: any) {
     console.log(ID)
     this.UserApiService.delete(ID)
-   // this.UserApiService.update(ID,t)
+    // this.UserApiService.update(ID,t)
   }
 
 }

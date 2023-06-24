@@ -5,6 +5,6 @@
 <snx-header />
 
 <!-- your code here -->
-<app-render-users></app-render-users>
+<app-render-users (isLoading)="isLoading($event)"></app-render-users>
 
-<mat-progress-spinner [mode]="'indeterminate'" *ngIf="loading$ | async"></mat-progress-spinner>
+<mat-progress-spinner [mode]="'indeterminate'" *ngIf="loading"></mat-progress-spinner>
