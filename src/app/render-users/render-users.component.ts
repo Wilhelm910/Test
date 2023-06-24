@@ -25,9 +25,11 @@ export class RenderUsersComponent implements OnInit {
     })
   }
 
+  
   onSearchTextEntered(searchValue: string) {
     this.searchText = searchValue;
   }
+
 
   deleteUser(ID: number) {
     console.log(ID)

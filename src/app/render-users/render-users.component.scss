@@ -1,3 +1,7 @@
 .flex {
     display: flex;
+
+    >p {
+        margin-right: 8px;
+    }
 }
