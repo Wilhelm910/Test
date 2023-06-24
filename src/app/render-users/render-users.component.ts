@@ -2,6 +2,8 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { UserApiService } from '../backend/user-api.service';
 import { UserDTO } from '../data/user';
 import { DatePipe } from '@angular/common';
+import { EditUserComponent } from '../edit-user/edit-user.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -17,7 +19,7 @@ export class RenderUsersComponent implements OnInit {
 
   @Output() isLoading: EventEmitter<any> = new EventEmitter()
 
-  constructor(private UserApiService: UserApiService) { }
+  constructor(private UserApiService: UserApiService,  public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.isLoading.emit(true)
@@ -50,6 +52,10 @@ export class RenderUsersComponent implements OnInit {
       formattedDate,
       formattedTime
     };
+  }
+
+  openDialog() {
+    this.dialog.open(EditUserComponent);
   }
 
 }

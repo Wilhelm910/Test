@@ -3,8 +3,8 @@
 </div>
 
 <div class="user-container">
-    <div *ngFor="let user of userList" class="user">
-        <div *ngIf="searchText === '' 
+    <div *ngFor="let user of userList">
+        <div class="user" *ngIf="searchText === '' 
         || user.username.toLowerCase().replace('-', ' ').includes(searchText.toLowerCase())
         || user.firstname.toLowerCase().includes(searchText.toLowerCase())
         || user.lastname.toLowerCase().includes(searchText.toLowerCase())">
@@ -22,7 +22,10 @@
                 <p>|</p>
                 <p>{{ getDateTimeFromTimestamp(user.lastModified).formattedTime }}</p>
             </div>
-            <button mat-raised-button (click)="deleteUser(user.id)">delete</button>
+            <div class="btn-container">
+                <button mat-raised-button (click)="deleteUser(user.id)">Delete</button>
+                <button mat-raised-button (click)="openDialog()">Edit</button>
+            </div>
         </div>
     </div>
 </div>

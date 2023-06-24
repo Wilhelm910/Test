@@ -15,15 +15,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatButtonModule } from '@angular/material/button';
-import { HttpClientModule } from  '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './search/search.component';
 import { FormsModule } from '@angular/forms';
+import { EditUserComponent } from './edit-user/edit-user.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
 @NgModule({
-  declarations: [AppComponent, RenderUsersComponent, SearchComponent],
-  imports: [BrowserModule, FormsModule, MatIconModule, MatInputModule, HeaderComponent, BrowserAnimationsModule, MatToolbarModule, MatProgressSpinnerModule, MatButtonModule, HttpClientModule],
+  declarations: [AppComponent, RenderUsersComponent, SearchComponent, EditUserComponent],
+  imports: [BrowserModule, MatDialogModule, FormsModule, MatIconModule, MatInputModule, HeaderComponent, BrowserAnimationsModule, MatToolbarModule, MatProgressSpinnerModule, MatButtonModule, HttpClientModule],
   providers: [UserApiService],
   bootstrap: [AppComponent],
 })
