@@ -23,7 +23,7 @@
                 <p>{{ getDateTimeFromTimestamp(user.lastModified).formattedTime }}</p>
             </div>
             <div class="btn-container">
-                <button mat-raised-button (click)="deleteUser(user.id)">Delete</button>
+                <button style="margin-right: 8px;" mat-raised-button (click)="deleteUser(user.id)">Delete</button>
                 <button mat-raised-button (click)="openDialog(user.id)">Edit</button>
             </div>
         </div>

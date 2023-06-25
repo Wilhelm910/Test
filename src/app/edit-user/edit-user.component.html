@@ -1,18 +1,22 @@
 <h1 mat-dialog-title>Edit User</h1>
 
-<div class="input-container">
-    <mat-form-field>
-        <input matInput #firstname placeholder={{data.firstname}}>
-    </mat-form-field>
-    <mat-form-field>
-        <input matInput #lastname placeholder={{data.lastname}}>
-    </mat-form-field>
-    <mat-form-field>
-        <textarea style="min-height: 100px;" matInput #description placeholder={{data.description}}></textarea>
-    </mat-form-field>
-</div>
-
-<div mat-dialog-actions>
-    <button mat-button mat-dialog-close cdkFocusInitial
-        (click)="confirm(firstname.value, lastname.value, description.value)">OK</button>
-</div>
+<form>
+    <div class="input-container">
+        <mat-form-field>
+            <input matInput #firstname placeholder={{data.firstname}} maxlength="15">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput #lastname placeholder={{data.lastname}} maxlength="15">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput #email placeholder={{data.email}} maxlength="20">
+        </mat-form-field>
+        <mat-form-field>
+            <textarea style="min-height: 100px;" matInput #description placeholder={{data.description}} maxlength="200"></textarea>
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button mat-dialog-close cdkFocusInitial
+            (click)="confirm(firstname.value, lastname.value, description.value, email.value)">OK</button>
+    </div>
+</form>

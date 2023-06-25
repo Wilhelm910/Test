@@ -25,7 +25,18 @@ import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [AppComponent, RenderUsersComponent, SearchComponent, EditUserComponent],
-  imports: [BrowserModule, MatDialogModule, FormsModule, MatIconModule, MatInputModule, HeaderComponent, BrowserAnimationsModule, MatToolbarModule, MatProgressSpinnerModule, MatButtonModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    MatDialogModule,
+    FormsModule,
+    MatIconModule,
+    MatInputModule,
+    HeaderComponent,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatProgressSpinnerModule,
+    MatButtonModule,
+    HttpClientModule],
   providers: [UserApiService],
   bootstrap: [AppComponent],
 })

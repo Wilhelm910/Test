@@ -21,10 +21,10 @@ export class RenderUsersComponent implements OnInit {
   constructor(private UserApiService: UserApiService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.isLoading.emit(true)
+    this.isLoading.emit(true);
     this.UserApiService.list().subscribe(res => {
       this.userList = res;
-      this.isLoading.emit(false)
+      this.isLoading.emit(false);
     })
   }
 
@@ -35,10 +35,8 @@ export class RenderUsersComponent implements OnInit {
 
 
   deleteUser(ID: number) {
-    console.log(ID)
     this.UserApiService.delete(ID).subscribe((newUserList) => {
       this.userList = newUserList;
-      // this.UserApiService.update(2, this.userList).subscribe(() => { })
     })
   }
 
@@ -53,21 +51,17 @@ export class RenderUsersComponent implements OnInit {
     };
   }
 
+
   openDialog(ID: number) {
-    let editingUser = []
+    let editingUser = [];
     for (let i = 0; i < this.userList.length; i++) {
       if (this.userList[i].id == ID) {
-        editingUser = this.userList[i]
+        editingUser = this.userList[i];
       }
     }
-    /*let dialogRef =*/ this.dialog.open(EditUserComponent, {
+    this.dialog.open(EditUserComponent, {
       data: editingUser
     });
-/*
-    dialogRef.afterClosed().subscribe(res => {
-      console.log(res)
-      console.log(res.data)
-    })*/
   }
 
 }

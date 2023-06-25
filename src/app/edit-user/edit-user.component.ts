@@ -17,7 +17,7 @@ export class EditUserComponent implements OnInit {
   editedUser = this.data;
 
 
-  confirm(firstname: string, lastname: string, description: string) {
+  confirm(firstname: string, lastname: string, description: string, email: string) {
     if (firstname.length > 0) {
       this.editedUser.firstname = firstname;
     }
@@ -27,6 +27,8 @@ export class EditUserComponent implements OnInit {
     if (description.length > 0) {
       this.editedUser.description = description;
     }
-  //  this.dialogRef.close(this.editedUser)
+    if (email.length > 0) {
+      this.editedUser.email = email;
+    }
   }
 }
