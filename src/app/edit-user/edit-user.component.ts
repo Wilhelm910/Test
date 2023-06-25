@@ -1,6 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { UserDTO } from '../data/user';
 
 @Component({
   selector: 'app-edit-user',
@@ -18,10 +17,7 @@ export class EditUserComponent implements OnInit {
   editedUser = this.data;
 
 
-  confirm(email: string, firstname: string, lastname: string, description: string) {
-    if (email.length > 0) {
-      this.editedUser.email = email;
-    }
+  confirm(firstname: string, lastname: string, description: string) {
     if (firstname.length > 0) {
       this.editedUser.firstname = firstname;
     }
@@ -31,6 +27,6 @@ export class EditUserComponent implements OnInit {
     if (description.length > 0) {
       this.editedUser.description = description;
     }
-    this.dialogRef.close(this.editedUser)
+  //  this.dialogRef.close(this.editedUser)
   }
 }

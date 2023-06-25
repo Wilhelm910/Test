@@ -20,6 +20,7 @@
     border-radius: 8px;
     border: 1px solid black;
     margin: 4px;
+
     &:hover {
         background-color: rgba($color: #1a0d4a, $alpha: 0.1);
 
@@ -51,4 +52,10 @@
 .btn-container {
     display: flex;
     justify-content: space-between;
+}
+
+.description {
+    max-width: 400px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

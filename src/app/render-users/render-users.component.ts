@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { UserApiService } from '../backend/user-api.service';
-import { UserDTO } from '../data/user';
 import { DatePipe } from '@angular/common';
 import { EditUserComponent } from '../edit-user/edit-user.component';
 import { MatDialog } from '@angular/material/dialog';
