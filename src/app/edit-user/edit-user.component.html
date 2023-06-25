@@ -1,1 +1,38 @@
-<p>edit-user works!</p>
+<h1 mat-dialog-title>Delete file</h1>
+<div mat-dialog-content>
+    <mat-form-field>
+        <mat-label>First Name</mat-label>
+        <input [(ngModel)]="data.firstname" matInput>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Last Name</mat-label>
+        <input [(ngModel)]="data.lastname" matInput>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input [(ngModel)]="data.email" matInput>
+    </mat-form-field>
+    <mat-form-field>
+        <input #email placeholder={{data.email}} matInput>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close>No</button>
+    <button mat-button mat-dialog-close cdkFocusInitial>Ok</button>
+</div>
+<mat-form-field>
+    <input matInput #firstname placeholder={{data.firstname}}>
+</mat-form-field>
+
+<mat-form-field>
+    <input matInput #lastname placeholder={{data.lastname}}>
+</mat-form-field>
+
+<mat-form-field>
+    <input matInput #description placeholder={{data.description}}>
+</mat-form-field>
+
+
+<input [(ngModel)]="editedUser.firstname">
+<button mat-button mat-dialog-close cdkFocusInitial
+    (click)="confirm(email.value, firstname.value, lastname.value, description.value)">OK</button>
